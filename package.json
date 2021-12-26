@@ -1,6 +1,6 @@
 {
-  "name": "@kk8787/just-undo",
-  "version": "1.0.1",
+  "name": "@kk8787/just-undo-redo",
+  "version": "0.0.1",
   "description": "A library that simply undo and redo.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KK8787/just-undo.git"
+    "url": "git+https://github.com/KK8787/just-undo-redo.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@kk8787"
@@ -25,9 +25,9 @@
   "author": "kk8787",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/KK8787/just-undo/issues"
+    "url": "https://github.com/KK8787/just-undo-redo/issues"
   },
-  "homepage": "https://github.com/KK8787/just-undo.git#readme",
+  "homepage": "https://github.com/KK8787/just-undo-redo.git#readme",
   "devDependencies": {
     "@types/jest": "^27.0.2",
     "@typescript-eslint/eslint-plugin": "^4.5.4",
