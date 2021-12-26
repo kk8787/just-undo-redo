@@ -16,9 +16,6 @@
     "type": "git",
     "url": "git+https://github.com/KK8787/just-undo-redo.git"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@kk8787"
-  },
   "keywords": [
     "typescript"
   ],
