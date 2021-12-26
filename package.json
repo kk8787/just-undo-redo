@@ -1,0 +1,46 @@
+{
+  "name": "@kk8787/just-undo",
+  "version": "1.0.1",
+  "description": "A library that simply undo and redo.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.(js|ts)\"",
+    "lint": "eslint src --ext .js,.ts",
+    "lint:fix": "eslint src --fix --ext .js,.ts",
+    "publish": "npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KK8787/just-undo.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@kk8787"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "kk8787",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KK8787/just-undo/issues"
+  },
+  "homepage": "https://github.com/KK8787/just-undo.git#readme",
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.5.4",
+    "@typescript-eslint/parser": "^4.5.4",
+    "eslint": "^7.11.0",
+    "eslint-plugin-jest": "^24.1.0",
+    "jest": "^27.0.2",
+    "prettier": "^2.3.0",
+    "ts-jest": "^27.0.2",
+    "typescript": "4.5.4"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "dependencies": {}
+}

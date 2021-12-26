@@ -1,0 +1,33 @@
+name: publish
+env:
+  CI: true
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "!*"
+
+jobs:
+  release:
+    name: Setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@kk8787'
+      - name: install
+        run: npm install
+      - name: build
+        run: npm run build
+      - name: publish
+        run: |
+          npm publish || echo "Does not publish"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
