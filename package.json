@@ -1,6 +1,6 @@
 {
   "name": "@kk8787/just-undo-redo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A library that simply undo and redo.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
