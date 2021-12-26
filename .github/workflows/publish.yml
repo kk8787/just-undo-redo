@@ -1,33 +1,38 @@
-name: publish
-env:
-  CI: true
-
+name: Publish To npm
 on:
   push:
     branches:
       - main
-    tags:
-      - "!*"
-
+  workflow_dispatch:
 jobs:
-  release:
-    name: Setup
+  publish-to-npm:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v1
-      - name: setup Node
+      - name: Use Node.js And Setup .npmrc
         uses: actions/setup-node@v1
         with:
-          node-version: 16.x
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@kk8787'
-      - name: install
-        run: npm install
-      - name: build
-        run: npm run build
-      - name: publish
-        run: |
-          npm publish || echo "Does not publish"
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+          # ↓ package.json の name に含めたスコープを指定しておく
+          scope       : '@kk8787'
+          always-auth : true
+        env :
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+      - name: Can Publish
+        run : npx can-npm-publish --verbose
+        env :
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+      - name: Install
+        run : npm install
+        env :
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+      - name: Build
+        run : npm run build --if-present
+        env :
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+      - name: Publish
+        run : npm publish --access=public
+        env :
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
